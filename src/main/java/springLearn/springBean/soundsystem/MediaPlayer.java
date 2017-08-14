@@ -1,5 +1,10 @@
 package main.java.springLearn.springBean.soundsystem;
 
-public interface MediaPlayer {
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
+@ComponentScan
+@Configuration
+public interface MediaPlayer {
+	public void play();
 }

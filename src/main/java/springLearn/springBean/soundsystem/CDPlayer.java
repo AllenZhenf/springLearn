@@ -1,8 +1,9 @@
 package main.java.springLearn.springBean.soundsystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
+@Component
 public class CDPlayer implements MediaPlayer {
 	@Autowired
 	private CompactDisc cd;
@@ -21,4 +22,18 @@ public class CDPlayer implements MediaPlayer {
 	public void play(){
 		cd.play();
 	}
+	
+	@Bean
+	public CompactDisc setPepper(){
+		System.out.println(new SgtPeppers().hashCode());
+		return new SgtPeppers();
+	}	
+	
+	@Bean
+	public CDPlayer cdPlayer(){
+		System.out.println(new SgtPeppers().hashCode());
+		return new CDPlayer(setPepper());
+	}
+	
+	
 }

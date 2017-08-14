@@ -17,7 +17,6 @@
 	<classpathentry kind="lib" path="lib/spring-context-4.3.8.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-core-4.3.8.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-expression-4.3.8.RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/MyEclipse/Workspaces/MyEclipse 10/FWmanager/WebContent/WEB-INF/lib/commons-logging-1.0.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
