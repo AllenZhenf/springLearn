@@ -1,17 +1,17 @@
 package main.java.springLearn.profileBean;
 
-import javax.activation.DataSource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
+import javax.activation.DataSource;
+
 @Configuration
-@Profile("dev")//±íÊ¾Ö»ÓĞdev profoile¼¤»îÊ±²Å´´½¨
+@Profile("dev")//è¡¨ç¤ºåªæœ‰dev profoileæ‰æ¿€æ´»åˆ›å»º
 public class DevelopmentProfileConfig {
-	@Bean(destroyMethod="shutdown")
+	@Bean
 	public DataSource datasource(){
 		return (DataSource) new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
 				.addScript("classpath:schema.sql").addScript("classpath:test-data.sql").build();
