@@ -1,39 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>   
-<beans xmlns="http://www.springframework.org/schema/beans"  
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-     xmlns:context="http://www.springframework.org/schema/context"  
-     xsi:schemaLocation="http://www.springframework.org/schema/beans 
-     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
-     http://www.springframework.org/schema/context 
-     http://www.springframework.org/schema/context/spring-context-3.0.xsd" profile="dev">   
-	<!-- <context:component-scan base-package="soundsystem" /> -->
-	<!-- <bean id="cdPlayer" class="main.java.springLearn.springBean.soundsystem.CDPlayer">
-		<constructor-arg ref="compactDisc"></constructor>
-	</bean> -->
-<!-- 	<bean id="compactDisc" class="main.java.springLearn.springBean.soundsystem.CompactDisc"></bean> 
-	<bean id="cdPlayer" class="main.java.springLearn.springBean.soundsystem.CDPlayer" c:_ref="compactDisc"/>
-	 -->
-<!-- 	<jdbc:embedded-database id="dataSource" >
-		<jdbc:script location="classpath:schema.sql"/>
-		<jdbc:script location="classpath:test-data.sql"/>
-	</jdbc:embedded-database> -->
-	
-	<beans profile="dev">
-		<jdbc:embedded-database id="dataSource" >
-		<jdbc:script location="classpath:schema.sql"/>
-		<jdbc:script location="classpath:test-data.sql"/>
-	</jdbc:embedded-database>
-	</beans>
-	
-	<beans profile="qa">
-		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-			destroy-method="close"
-			p:url="jdbc:h2:tcp://dbserver/~/test"
-			p:driverClassName="org.h2.Driver"
-			p:username="sa"
-			p:password="password"
-			p:initialSize="20"
-			p:maxActive="30"
-		/>
-	</beans>
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="soundsystem"/>
 </beans>
