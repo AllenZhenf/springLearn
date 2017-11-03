@@ -1,40 +1,39 @@
 package main.java.springLearn.springBean.soundsystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 @Component
 public class CDPlayer implements MediaPlayer {
 	@Autowired
 	private CompactDisc cd;
-	
-	//¿ÉÍ¨¹ý¹¹ÔìÆ÷×¢Èë
+
+	//å¯é€šè¿‡æž„é€ å™¨æ³¨å…¥
 	@Autowired
 	public CDPlayer(CompactDisc cd){
 		this.cd=cd;
 	}
-	//¿ÉÍ¨¹ýsetµÈ·½·¨×¢Èë
-	@Autowired(required=false)//±ÜÃâbeanÎª¿ÕÅ×³öÒì³£Í¨¹ýÉèÖÃrequired=false
+	//å¯é€šè¿‡setæ–¹å¼æ³¨å…¥
+	@Autowired(required=false)//é¿å…beanä¸ºç©ºæŠ›å‡ºå¼‚å¸¸é€šè¿‡è®¾ç½®required=false
 	public void setCompactDisc(CompactDisc cd){
 		this.cd=cd;
 	}
-	
+
 	@Override
 	public void play(){
 		cd.play();
 	}
-	
-	@Bean
-	public CompactDisc setPepper(){
-		System.out.println(new SgtPeppers().hashCode());
-		return new SgtPeppers();
-	}	
-	
-	@Bean
-	public CDPlayer cdPlayer(){
-		System.out.println(new SgtPeppers().hashCode());
-		return new CDPlayer(setPepper());
-	}
-	
-	
+
+//	@Bean
+//	public CompactDisc setPepper(){
+//		System.out.println(new SgtPeppers().hashCode());
+//		return new SgtPeppers();
+//	}
+//
+//	@Bean
+//	public CDPlayer cdPlayer(){
+//		System.out.println(new SgtPeppers().hashCode());
+//		return new CDPlayer(setPepper());
+//	}
+
+
 }
