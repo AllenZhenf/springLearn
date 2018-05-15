@@ -13,4 +13,9 @@ public class SgtPeppers implements CompactDisc {
 		//System.out.print(1);
 	}
 
+	@Override
+	public void playTrack(int num) {
+
+	}
+
 }

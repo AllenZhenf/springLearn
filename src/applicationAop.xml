@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean class="main.java.springLearn.aop.AudienceBak" id="audienceBak"></bean>
+    <bean class="main.java.springLearn.aop.TrackCounter" id="trackCounter"></bean>
+   <!-- <aop:config>
+        <aop:aspect ref="audienceBak">
+            <aop:before pointcut="execution(**main.java.springLearn.aop.Performance.perform(..))" method="silenceCellPhones"></aop:before>
+            <aop:before pointcut="execution(**main.java.springLearn.aop.Performance.perform(..))" method="takeSeats"/>
+            <aop:after-returning pointcut="execution(**main.java.springLearn.aop.Performance.perform(..))" method="applause"/>
+            <aop:after-throwing pointcut="execution(**main.java.springLearn.aop.Performance.perform(..))" method="demandRefund"/>
+        </aop:aspect>
+    </aop:config>-->
+    <aop:config>
+        <aop:aspect>
+            <aop:pointcut id="proformance" expression="execution(**main.java.springLearn.aop.Performance.perform(..))"></aop:pointcut>
+            <aop:before pointcut-ref="proformance" method="silenceCellPhones"></aop:before>
+            <aop:before method="takeSeats" pointcut-ref="proformance"></aop:before>
+            <aop:after-returning method="applause" pointcut-ref="proformance"></aop:after-returning>
+            <aop:after-throwing method="demandRefund" pointcut-ref="proformance"></aop:after-throwing>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

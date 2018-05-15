@@ -1,2 +1,14 @@
 /bin/
 /target/
+src/main/a.txt
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+lib/
+src/main/java/springLearn/annoation/schema1.xsd
+web/index.jsp

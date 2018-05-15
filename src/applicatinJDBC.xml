@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+    <!--jndi方式-->
+ <!--   <jee:jndi-lookup jndi-name="/jdbc/SpitterDs" resource-ref="true" id="dataSource"/>-->
+    <!--jdbc方式-->
+   <!-- <bean class="org.apache.commons.dbcp.BasicDataSource" id="jdbcSource" p:driverClassName="org.h2.Driver"
+          p:url=""
+          p:username=""
+          p:password=""
+          p:initialSize="5"
+          p:maxActive="10"/>-->
+
+    <beans profile="development" >
+        <jdbc:embedded-database id="dataSource" type="H2">
+            <jdbc:script location="XX/XX/XX/*.sql"></jdbc:script>
+        </jdbc:embedded-database>
+    </beans>
+    <beans profile="qa">
+        <bean id="source" class="org.apache.commons.dbcp.BasicDataSource"
+              p:username=""
+              p:password=""
+              p:url=""
+              p:initialSize="5"
+              p:maxActive="10"/>
+    </beans>
+    <beans profile="production">
+        <jee:jndi-lookup jndi-name="/jdbc/SpritterDS" id="datadSource" resource-ref="true"/>
+    </beans>
+</beans>
